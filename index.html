@@ -1,74 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VOID Streetwear</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Login - College Portal</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="ChatGPT Image Apr 22, 2025, 12_30_04 PM.png" alt="VOID logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#shop">Shop</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#cart">Cart (<span id="cart-count">0</span>)</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div class="container">
+    <form id="loginForm" class="login-box">
+      <h2>Student Login</h2>
 
-    <section id="home" class="hero">
-        <div class="hero-text">
-            <h1>Where individuality meets style</h1>
-            <a href="#shop" class="cta-button">Shop Now</a>
-        </div>
-    </section>
+      <div class="input-group">
+        <label for="studentID">Student ID</label>
+        <input type="text" id="studentID" placeholder="Enter your ID" required />
+      </div>
 
-    <section id="shop">
-        <h2>Featured Products</h2>
-        <div class="product-grid">
-            <div class="product">
-                <img src="1738351946729.jpg" alt="Eclipse Tee">
-                <h3>Eclipse Tee</h3>
-                <p>₹299</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="IMG_20250221_164948889_HDR_AE.jpg" alt="Lunar Fade Tee">
-                <h3>Lunar Fade Tee</h3>
-                <p>₹249</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-            <div class="product">
-                <img src="IMG_20250417_233144_115.webp" alt="Zero Zone Tee">
-                <h3>Zero Zone Tee</h3>
-                <p>₹399</p>
-                <button class="add-to-cart">Add to Cart</button>
-            </div>
-        </div>
-    </section>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+        <span id="togglePassword">👁️</span>
+      </div>
 
-    <section id="cart">
-        <h2>Your Cart</h2>
-        <div id="cart-items"></div>
-        <p><strong>Total:</strong> ₹<span id="cart-total">0.00</span></p>
-        <button id="checkout">Checkout</button>
-    </section>
+      <button type="submit">Login</button>
 
-    <section id="about">
-        <h2>About Us</h2>
-        <p>"VOID is not just a brand, it's a lifestyle. Born from the streets, our minimalist designs blend style with confidence, offering bold statement pieces for those who dare to stand out. Welcome to the void – where trends collide with individuality."</p>
-    </section>
+      <p class="error" id="errorMsg"></p>
+      <p class="footer-text">Not registered? <a href="#">Contact Admin</a></p>
+    </form>
+  </div>
 
-    <footer>
-        <p>&copy; 2025 VOID Streetwear. All Rights Reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

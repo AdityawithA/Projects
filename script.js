@@ -1,54 +1,29 @@
-let cart = [];
+const form = document.getElementById("loginForm");
+const studentID = document.getElementById("studentID");
+const password = document.getElementById("password");
+const errorMsg = document.getElementById("errorMsg");
+const togglePassword = document.getElementById("togglePassword");
 
-const products = {
-    "Eclipse Tee": 299,
-    "Lunar Fade Tee": 249,
-    "Zero Zone Tee": 399
-};
-
-function updateCartDisplay() {
-    document.getElementById("cart-count").textContent = cart.length;
-    const cartItemsContainer = document.getElementById("cart-items");
-    const cartTotal = document.getElementById("cart-total");
-
-    cartItemsContainer.innerHTML = "";
-    let total = 0;
-
-    cart.forEach((item, index) => {
-        const div = document.createElement("div");
-        div.className = "cart-item";
-        div.innerHTML = `
-            <span>${item.name} - ₹${item.price.toFixed(2)}</span>
-            <button onclick="removeFromCart(${index})">Remove</button>
-        `;
-        cartItemsContainer.appendChild(div);
-        total += item.price;
-    });
-
-    cartTotal.textContent = total.toFixed(2);
-}
-
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    updateCartDisplay();
-}
-
-document.querySelectorAll(".add-to-cart").forEach(button => {
-    button.addEventListener("click", (event) => {
-        const productCard = event.target.closest(".product");
-        const name = productCard.querySelector("h3").innerText;
-
-        cart.push({ name: name, price: products[name] });
-        updateCartDisplay();
-        alert(`${name} has been added to your cart!`);
-    });
+togglePassword.addEventListener("click", () => {
+  const type = password.getAttribute("type") === "password" ? "text" : "password";
+  password.setAttribute("type", type);
+  togglePassword.textContent = type === "password" ? "👁️" : "🙈";
 });
 
-document.getElementById("checkout").addEventListener("click", () => {
-    if (cart.length === 0) {
-        alert("Your cart is empty.");
-        return;
-    }
-    localStorage.setItem("cart", JSON.stringify(cart));
-    window.location.href = "payment.html";
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  errorMsg.textContent = "";
+
+  if (studentID.value.trim() === "" || password.value.trim() === "") {
+    errorMsg.textContent = "All fields are required.";
+    return;
+  }
+
+  // Example validation (replace with actual backend call)
+  if (studentID.value === "20250123" && password.value === "college123") {
+    alert("Login successful!");
+    window.location.href = "dashboard.html"; // Or your actual page
+  } else {
+    errorMsg.textContent = "Invalid ID or Password.";
+  }
 });
